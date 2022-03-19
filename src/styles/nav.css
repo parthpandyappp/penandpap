@@ -1,0 +1,94 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.underline {
+  text-decoration: underline var(--color-primary);
+}
+
+.underline-wavy {
+  text-decoration: wavy underline var(--color-primary);
+}
+.nav-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-pills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: large;
+}
+
+.nav-ico {
+  width: 30px;
+  vertical-align: middle;
+}
+
+.btn {
+  padding: 0.5rem 1.5rem !important;
+  background: none;
+  font-weight: bolder;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.ham-menu {
+  display: none;
+}
+
+.ico-basic {
+  color: var(--color-basic);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-basic);
+}
+
+.btn-secondary {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.inline-list {
+  list-style: none;
+}
+
+.ham-menu {
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  .nor-menu {
+    display: none;
+  }
+  .ham-menu {
+    display: block;
+  }
+}
