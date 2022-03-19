@@ -16,8 +16,8 @@ function Endpoints() {
       <Route path="/products" element={<ProductList />} />
       <Route path="/wishlist" element={<Wishlist />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="signup" element={<Signup />} />
-      <Route path="login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/" element={<Home />} />
     </Routes>
   );

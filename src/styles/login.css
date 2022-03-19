@@ -1,0 +1,33 @@
+.auth-form {
+  margin-top: 5rem;
+  height: 100%;
+}
+
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid var(--color-primary);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.auth-form form .inp-unit {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.login-btn {
+  padding: 0.5rem !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.inp-unit input {
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-primary);
+  padding: 0.5rem;
+}
