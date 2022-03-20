@@ -39,9 +39,12 @@ export const signupHandler = function (schema, request) {
       wishlist: [],
     };
     const createdUser = schema.users.create(newUser);
+    console.log("User: ", createdUser)
+    console.log("JW_SECRET: ", process.env.REACT_APP_JWT_SECRET)
     const encodedToken = sign({ _id, email }, process.env.REACT_APP_JWT_SECRET);
     return new Response(201, {}, { createdUser, encodedToken });
   } catch (error) {
+    console.log(error)
     return new Response(
       500,
       {},

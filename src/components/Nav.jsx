@@ -6,7 +6,10 @@ export default function Nav() {
     <nav>
       <h1 className="nav-header">
         <span>
-          <img src="https://img.icons8.com/small/32/000000/sign-up.png" />
+          <img
+            src="https://img.icons8.com/small/32/000000/sign-up.png"
+            alt=""
+          />
         </span>
 
         <Link to="/" className="underline-wavy">
@@ -19,6 +22,7 @@ export default function Nav() {
           <img
             className="ham-menu"
             src="https://img.icons8.com/small/32/000000/menu.png"
+            alt=""
           />
           <li className="nor-menu inline-list">
             <button className="btn btn-primary nav-btn">
@@ -26,6 +30,7 @@ export default function Nav() {
                 <img
                   className="nav-ico ico-basic"
                   src="https://img.icons8.com/ios/50/000000/login-rounded-right--v1.png"
+                  alt=""
                 />
               </span>
               <Link to="/login">Login</Link>
@@ -37,6 +42,7 @@ export default function Nav() {
                 <img
                   className="nav-ico"
                   src="https://img.icons8.com/color/48/000000/like--v3.png"
+                  alt=""
                 />
               </span>
               <Link to="/wishlist">Wishlist</Link>
@@ -48,6 +54,7 @@ export default function Nav() {
                 <img
                   className="nav-ico"
                   src="https://img.icons8.com/external-icongeek26-glyph-icongeek26/64/000000/external-cart-user-interface-icongeek26-glyph-icongeek26.png"
+                  alt=""
                 />
               </span>
               <Link to="/cart">Cart</Link>

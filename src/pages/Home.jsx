@@ -8,7 +8,10 @@ export default function Home() {
           <div className="main-header">
             <h1 className="underline underline-wavy main-title">
               <span>
-                <img src="https://img.icons8.com/small/32/000000/sign-up.png" />
+                <img
+                  src="https://img.icons8.com/small/32/000000/sign-up.png"
+                  alt=""
+                />
               </span>
               pen&pap
             </h1>
