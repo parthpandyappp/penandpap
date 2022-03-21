@@ -1,7 +1,12 @@
 import "../styles/nav.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { useAuth } from "../contexts/AuthProvider";
 
 export default function Nav() {
+  const { user } = useAuth();
+  console.log("User:", user);
+  // console.log("User Id:", JSON.parse(user));
+
   return (
     <nav>
       <h1 className="nav-header">
@@ -24,17 +29,22 @@ export default function Nav() {
             src="https://img.icons8.com/small/32/000000/menu.png"
             alt=""
           />
+
           <li className="nor-menu inline-list">
-            <button className="btn btn-primary nav-btn">
-              <span>
-                <img
-                  className="nav-ico ico-basic"
-                  src="https://img.icons8.com/ios/50/000000/login-rounded-right--v1.png"
-                  alt=""
-                />
-              </span>
-              <Link to="/login">Login</Link>
-            </button>
+            {user ? (
+              <h4>Hello, {user.firstName} 👋</h4>
+            ) : (
+              <button className="btn btn-primary nav-btn">
+                <span>
+                  <img
+                    className="nav-ico ico-basic"
+                    src="https://img.icons8.com/ios/50/000000/login-rounded-right--v1.png"
+                    alt=""
+                  />
+                </span>
+                <Link to="/login">Login</Link>
+              </button>
+            )}
           </li>
           <li className="nor-menu inline-list">
             <p className="nav-btn">
@@ -45,7 +55,11 @@ export default function Nav() {
                   alt=""
                 />
               </span>
-              <Link to="/wishlist">Wishlist</Link>
+              {!user ? (
+                <Link to="/login">Wishlist</Link>
+              ) : (
+                <Link to="/wishlist">Wishlist</Link>
+              )}
             </p>
           </li>
           <li className="nor-menu inline-list">
@@ -57,7 +71,11 @@ export default function Nav() {
                   alt=""
                 />
               </span>
-              <Link to="/cart">Cart</Link>
+              {!user ? (
+                <Link to="/login">Cart</Link>
+              ) : (
+                <Link to="/cart">Cart</Link>
+              )}
             </p>
           </li>
         </ul>

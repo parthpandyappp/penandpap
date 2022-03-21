@@ -1,11 +1,36 @@
 import "../styles/login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
+import { useAuth } from "../contexts/AuthProvider";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const { boolFunc } = useAuth();
+  const navigate = useNavigate();
+
+  const loginHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`/api/auth/login`, {
+        email: "gkool@neog.camp",
+        password: "gkool",
+      });
+      boolFunc((prev) => !prev);
+      // saving the encodedToken in the localStorage
+      localStorage.setItem("token", response.data.encodedToken);
+      localStorage.setItem("userData", JSON.stringify(response.data.foundUser));
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="center-hv">
       <div className="auth-form">
-        <form action="">
+        <form onSubmit={(e) => loginHandler(e)}>
           <h2>Login</h2>
           <div className="inp-unit">
             <label for="email">Email</label>
@@ -13,11 +38,17 @@ export default function Login() {
               type="email"
               name="email"
               placeholder="johnsangram@gkool.com"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="inp-unit">
             <label for="email">Password</label>
-            <input type="email" name="email" placeholder="**********" />
+            <input
+              type="email"
+              name="password"
+              placeholder="**********"
+              onChange={(e) => setPass(e.target.value)}
+            />
           </div>
 
           <div className="inp-unit">
