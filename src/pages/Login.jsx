@@ -10,6 +10,7 @@ export default function Login() {
   const { boolFunc } = useAuth();
   const navigate = useNavigate();
 
+  console.log(email, pass);
   const loginHandler = async (e) => {
     e.preventDefault();
     try {

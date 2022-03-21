@@ -1,5 +1,5 @@
 import "../styles/nav.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthProvider";
 
 export default function Nav() {
