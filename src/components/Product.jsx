@@ -23,7 +23,7 @@ export default function Product({
             />
           </h2>
         </div>
-        <h4>Ratings: {ratings}/5</h4>
+        {/* <h4>Ratings: {ratings}/5</h4> */}
         <button class="btn btn-primary btn-block">Move to Cart</button>
       </div>
     </div>
