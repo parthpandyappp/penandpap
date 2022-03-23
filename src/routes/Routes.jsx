@@ -8,7 +8,6 @@ import ProductList from "../pages/ProductList";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import Mockman from "mockman-js";
-// import { Wishlist, Cart, ProductList, Signup, Login } from "../pages/";
 
 function Endpoints() {
   return (

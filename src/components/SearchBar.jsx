@@ -1,9 +1,9 @@
 function SearchBar() {
   return (
-    <div class="search-center">
-      <div class="search-block">
-        <input class="search-bar" type="search" name="" id="" />
-        <button class="btn btn-primary">Search</button>
+    <div className="search-center">
+      <div className="search-block">
+        <input className="search-bar" type="search" name="" id="" />
+        <button className="btn btn-primary">Search</button>
       </div>
     </div>
   );

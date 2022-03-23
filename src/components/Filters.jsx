@@ -1,18 +1,18 @@
 export default function Filters({ dispatch }) {
   return (
-    <div class="side-nav">
-      <div class="filters">
-        <div class="filter-head">
+    <div className="side-nav">
+      <div className="filters">
+        <div className="filter-head">
           <h2>Filters</h2>
           <button
-            class="btn btn-primary"
+            className="btn btn-primary"
             onClick={() => dispatch({ type: "CLEAR", payload: null })}
           >
             Clear
           </button>
         </div>
 
-        <div class="filter-section">
+        <div className="filter-section">
           <h4>Price</h4>
           <p>
             <input
@@ -56,7 +56,7 @@ export default function Filters({ dispatch }) {
           </p>
         </div>
 
-        <div class="filter-section">
+        <div className="filter-section">
           <h4>Category</h4>
           <p>
             <input
@@ -80,7 +80,7 @@ export default function Filters({ dispatch }) {
           </p>
         </div>
 
-        <div class="filter-section">
+        <div className="filter-section">
           <h4>Ratings</h4>
           <p>
             <input
@@ -124,7 +124,7 @@ export default function Filters({ dispatch }) {
           </p>
         </div>
 
-        <div class="filter-section">
+        <div className="filter-section">
           <h4>Sort by</h4>
           <p>
             <input

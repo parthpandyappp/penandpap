@@ -34,18 +34,19 @@ export default function ProductList() {
   filteredData = getFilteredByRatings(filteredData, state.ratings);
 
   return (
-    <div class="prodList-container">
+    <div className="prodList-container">
       <Filters dispatch={dispatch} />
-      <div class="prod-main">
+      <div className="prod-main">
         <SearchBar />
 
-        <div class="product-list">
+        <div className="product-list">
           {filteredData &&
             filteredData.map(
-              ({ id, title, desc, price, coverImg, ratings }) => {
+              ({ _id, title, desc, price, coverImg, ratings }) => {
                 return (
                   <Product
-                    key={id}
+                    key={_id}
+                    _id={_id}
                     title={title}
                     description={desc}
                     price={price}
