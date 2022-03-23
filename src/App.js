@@ -1,4 +1,7 @@
 import "./App.css";
+import "./styles/prodlist.css";
+import "./styles/wishlist.css";
+
 import { Routes } from "./routes/Routes";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
