@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { useAuth } from "../contexts/AuthProvider";
 import { useCart } from "../contexts/CartProvider";
 import { notify } from "../helper-functions/toast-helpers";
