@@ -11,7 +11,6 @@ import {
 } from "react";
 
 const cartContext = createContext(null);
-const encodedToken = localStorage.getItem("token");
 
 function CartProvider({ children }) {
   const { user } = useAuth();
@@ -20,14 +19,19 @@ function CartProvider({ children }) {
   const [boolSwitch, setBoolSwitch] = useState(false);
 
   const getCartData = async () => {
-    const response = await axios({
-      method: "GET",
-      headers: {
-        authorization: encodedToken, // passing token as an authorization header
-      },
-      url: "/api/user/cart",
-    });
-    dispatch({ type: "SET_CART_DATA", payload: response.data.cart });
+    try {
+      const encodedToken = localStorage.getItem("token");
+      const response = await axios({
+        method: "GET",
+        headers: {
+          authorization: encodedToken, // passing token as an authorization header
+        },
+        url: "/api/user/cart",
+      });
+      dispatch({ type: "SET_CART_DATA", payload: response.data.cart });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
