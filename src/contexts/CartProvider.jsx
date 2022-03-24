@@ -34,7 +34,7 @@ function CartProvider({ children }) {
     if (user) {
       getCartData();
     }
-  }, [boolSwitch]);
+  }, [boolSwitch, user]);
 
   const boolFunc = () => setBoolSwitch((prev) => !prev);
 
