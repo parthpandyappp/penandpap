@@ -3,6 +3,12 @@ import { useAuth } from "../contexts/AuthProvider";
 import { useCart } from "../contexts/CartProvider";
 import { useWishlist } from "../contexts/WishlistProvider";
 import { addToCart, isCarted } from "../helper-functions/cart-helpers";
+import { Toaster } from "react-hot-toast";
+import {
+  notifyCart,
+  notifyAddWish,
+  notifyRemoveWish,
+} from "../helper-functions/toast-helpers";
 
 // importing helper functions
 import {
@@ -25,6 +31,7 @@ export default function Product({
 
   return (
     <div className="wishlist-product prodMain-size">
+      <Toaster position="bottom-right" reverseOrder={false} />
       <img className="wishlist-img" src={coverImg.link} alt={coverImg.alt} />
       <div className="wishlistProduct-details">
         <h3>{title}</h3>
@@ -38,7 +45,14 @@ export default function Product({
                 className="wishlist-love"
                 src="https://img.icons8.com/plasticine/100/000000/filled-like.png"
                 alt="like-button"
-                onClick={() => deleteWishItem(_id, wishDispatch, boolWishFunc)}
+                onClick={() =>
+                  deleteWishItem(
+                    _id,
+                    wishDispatch,
+                    boolWishFunc,
+                    notifyRemoveWish
+                  )
+                }
               />
             ) : (
               <img
@@ -48,7 +62,8 @@ export default function Product({
                 onClick={() =>
                   addToWishlist(
                     { _id, title, description, price, coverImg, ratings },
-                    boolWishFunc
+                    boolWishFunc,
+                    notifyAddWish
                   )
                 }
               />
@@ -74,7 +89,8 @@ export default function Product({
                     onClick={() =>
                       addToCart(
                         { _id, title, description, price, coverImg, ratings },
-                        boolFunc
+                        boolFunc,
+                        notifyCart
                       )
                     }
                   >
@@ -88,7 +104,8 @@ export default function Product({
                 onClick={() =>
                   addToCart(
                     { _id, title, description, price, coverImg, ratings },
-                    boolFunc
+                    boolFunc,
+                    notifyCart
                   )
                 }
               >

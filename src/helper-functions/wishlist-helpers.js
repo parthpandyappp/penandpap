@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const addToWishlist = async (productObj, boolWishFunc) => {
+const addToWishlist = async (productObj, boolWishFunc, notify) => {
 
   try {
 
@@ -18,13 +18,14 @@ const addToWishlist = async (productObj, boolWishFunc) => {
       }),
     });
 
+    notify();
     boolWishFunc();
   } catch (error) {
     console.log(error);
   }
 };
 
-const deleteWishItem = async (id, dispatch, boolFunc) => {
+const deleteWishItem = async (id, dispatch, boolFunc, notify) => {
   try {
 
     // token required as an authorization header
@@ -38,6 +39,7 @@ const deleteWishItem = async (id, dispatch, boolFunc) => {
       url: `/api/user/wishlist/${id}`,
     });
 
+    notify();
     boolFunc();
     dispatch({ type: "SET_WISH_DATA", payload: response.data.wishlist });
   }
