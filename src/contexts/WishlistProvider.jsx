@@ -11,7 +11,6 @@ import {
 } from "react";
 
 const wishlistContext = createContext(null);
-const encodedToken = localStorage.getItem("token");
 
 function WishlistProvider({ children }) {
   const { user } = useAuth();
@@ -22,15 +21,20 @@ function WishlistProvider({ children }) {
   const [boolSwitch, setBoolSwitch] = useState(false);
 
   const getWishlistData = async () => {
-    const response = await axios({
-      method: "GET",
-      headers: {
-        authorization: encodedToken, // passing token as an authorization header
-      },
-      url: "/api/user/wishlist",
-    });
-    console.log("Wishlist:", response);
-    wishDispatch({ type: "SET_WISH_DATA", payload: response.data.wishlist });
+    try {
+      const encodedToken = localStorage.getItem("token");
+      const response = await axios({
+        method: "GET",
+        headers: {
+          authorization: encodedToken, // passing token as an authorization header
+        },
+        url: "/api/user/wishlist",
+      });
+      console.log("Wishlist:", response);
+      wishDispatch({ type: "SET_WISH_DATA", payload: response.data.wishlist });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
