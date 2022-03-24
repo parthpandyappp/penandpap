@@ -2,10 +2,12 @@ import "../styles/nav.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthProvider";
 import { useCart } from "../contexts/CartProvider";
+import { useWishlist } from "../contexts/WishlistProvider";
 
 export default function Nav() {
   const { user } = useAuth();
   const { state } = useCart();
+  const { Wishstate } = useWishlist();
 
   return (
     <nav>
@@ -60,7 +62,9 @@ export default function Nav() {
               ) : (
                 <Link to="/wishlist" className="cartBadge-container">
                   Wishlist
-                  <span className="cart-badge">0</span>
+                  <span className="cart-badge">
+                    {Wishstate.wishlist.length}
+                  </span>
                 </Link>
               )}
             </p>

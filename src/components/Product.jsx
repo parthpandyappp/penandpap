@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 import { useAuth } from "../contexts/AuthProvider";
 import { useCart } from "../contexts/CartProvider";
-import { notify } from "../helper-functions/toast-helpers";
+import { useWishlist } from "../contexts/WishlistProvider";
 import { addToCart, isCarted } from "../helper-functions/cart-helpers";
+
+// importing helper functions
+import {
+  addToWishlist,
+  deleteWishItem,
+  isWished,
+} from "../helper-functions/wishlist-helpers";
 
 export default function Product({
   _id,
@@ -15,10 +21,10 @@ export default function Product({
 }) {
   const { user } = useAuth();
   const { state, boolFunc } = useCart();
+  const { Wishstate, wishDispatch, boolWishFunc } = useWishlist();
 
   return (
     <div className="wishlist-product prodMain-size">
-      <Toaster position="bottom-right" reverseOrder={false} />
       <img className="wishlist-img" src={coverImg.link} alt={coverImg.alt} />
       <div className="wishlistProduct-details">
         <h3>{title}</h3>
@@ -27,11 +33,26 @@ export default function Product({
           <h3>₹ {price}</h3>
 
           <h2>
-            <img
-              className="wishlist-love"
-              src="https://img.icons8.com/plasticine/100/000000/filled-like.png"
-              alt="like-button"
-            />
+            {isWished(Wishstate.wishlist, _id) ? (
+              <img
+                className="wishlist-love"
+                src="https://img.icons8.com/plasticine/100/000000/filled-like.png"
+                alt="like-button"
+                onClick={() => deleteWishItem(_id, wishDispatch, boolWishFunc)}
+              />
+            ) : (
+              <img
+                className="wishlist-love"
+                src="https://img.icons8.com/wired/64/000000/like--v1.png"
+                alt="like-button"
+                onClick={() =>
+                  addToWishlist(
+                    { _id, title, description, price, coverImg, ratings },
+                    boolWishFunc
+                  )
+                }
+              />
+            )}
           </h2>
         </div>
         {/* <h4>Ratings: {ratings}/5</h4> */}
@@ -53,8 +74,7 @@ export default function Product({
                     onClick={() =>
                       addToCart(
                         { _id, title, description, price, coverImg, ratings },
-                        boolFunc,
-                        notify
+                        boolFunc
                       )
                     }
                   >
@@ -68,8 +88,7 @@ export default function Product({
                 onClick={() =>
                   addToCart(
                     { _id, title, description, price, coverImg, ratings },
-                    boolFunc,
-                    notify
+                    boolFunc
                   )
                 }
               >
