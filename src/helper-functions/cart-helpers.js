@@ -5,7 +5,7 @@ const encodedToken = localStorage.getItem("token")
 
 
 // A helper function to Add items in Cart
-const addToCart = async (productObj, boolFunc) => {
+const addToCart = async (productObj, boolFunc, notify) => {
 
   try {
     await axios({
@@ -18,7 +18,7 @@ const addToCart = async (productObj, boolFunc) => {
         product: productObj,
       }),
     });
-
+    notify();
     boolFunc();
   } catch (error) {
     console.log(error);

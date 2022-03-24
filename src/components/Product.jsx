@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../contexts/AuthProvider";
 import { useCart } from "../contexts/CartProvider";
+import { notify } from "../helper-functions/toast-helpers";
 import { addToCart, isCarted } from "../helper-functions/cart-helpers";
 
 export default function Product({
@@ -16,6 +18,7 @@ export default function Product({
 
   return (
     <div className="wishlist-product prodMain-size">
+      <Toaster position="bottom-right" reverseOrder={false} />
       <img className="wishlist-img" src={coverImg.link} alt={coverImg.alt} />
       <div className="wishlistProduct-details">
         <h3>{title}</h3>
@@ -50,7 +53,8 @@ export default function Product({
                     onClick={() =>
                       addToCart(
                         { _id, title, description, price, coverImg, ratings },
-                        boolFunc
+                        boolFunc,
+                        notify
                       )
                     }
                   >
@@ -64,7 +68,8 @@ export default function Product({
                 onClick={() =>
                   addToCart(
                     { _id, title, description, price, coverImg, ratings },
-                    boolFunc
+                    boolFunc,
+                    notify
                   )
                 }
               >
