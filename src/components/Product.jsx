@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import { useAuth } from "../contexts/AuthProvider";
 import { useCart } from "../contexts/CartProvider";
 import { useWishlist } from "../contexts/WishlistProvider";
 import { addToCart, isCarted } from "../helper-functions/cart-helpers";
-import { Toaster } from "react-hot-toast";
 import {
   notifyCart,
   notifyAddWish,

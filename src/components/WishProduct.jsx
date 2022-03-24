@@ -1,8 +1,14 @@
+import { Link } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import { useCart } from "../contexts/CartProvider";
 import { useWishlist } from "../contexts/WishlistProvider";
 import { deleteWishItem } from "../helper-functions/wishlist-helpers";
-import { useCart } from "../contexts/CartProvider";
-import { Link } from "react-router-dom";
 import { addToCart, isCarted } from "../helper-functions/cart-helpers";
+
+import {
+  notifyRemoveWish,
+  notifyCart,
+} from "../helper-functions/toast-helpers";
 
 function WishProduct({ product }) {
   const { wishDispatch, boolWishFunc } = useWishlist();
@@ -11,6 +17,8 @@ function WishProduct({ product }) {
 
   return (
     <div class="wishlist-product">
+      <Toaster position="bottom-right" reverseOrder={false} />
+
       <img class="wishlist-img" src={coverImg.link} alt={coverImg.alt} />
       <div class="wishlistProduct-details">
         <h3>{title}</h3>
@@ -22,7 +30,14 @@ function WishProduct({ product }) {
               class="wishlist-love"
               src="https://img.icons8.com/plasticine/100/000000/filled-like.png"
               alt=""
-              onClick={() => deleteWishItem(_id, wishDispatch, boolWishFunc)}
+              onClick={() =>
+                deleteWishItem(
+                  _id,
+                  wishDispatch,
+                  boolWishFunc,
+                  notifyRemoveWish
+                )
+              }
             />
           </h2>
         </div>
@@ -38,7 +53,8 @@ function WishProduct({ product }) {
                 onClick={() =>
                   addToCart(
                     { _id, title, description, price, coverImg, ratings },
-                    boolFunc
+                    boolFunc,
+                    notifyCart
                   )
                 }
               >
@@ -52,7 +68,8 @@ function WishProduct({ product }) {
             onClick={() =>
               addToCart(
                 { _id, title, description, price, coverImg, ratings },
-                boolFunc
+                boolFunc,
+                notifyCart
               )
             }
           >

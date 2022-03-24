@@ -30,7 +30,7 @@ function WishlistProvider({ children }) {
         },
         url: "/api/user/wishlist",
       });
-      console.log("Wishlist:", response);
+
       wishDispatch({ type: "SET_WISH_DATA", payload: response.data.wishlist });
     } catch (error) {
       console.log(error);
@@ -39,7 +39,6 @@ function WishlistProvider({ children }) {
 
   useEffect(() => {
     if (user) {
-      console.log("It was runned to");
       getWishlistData();
     }
   }, [boolSwitch, user]);
