@@ -1,6 +1,6 @@
+import axios from "axios";
 import { useAuth } from "./AuthProvider";
 import { wishlistReducer } from "../reducers/wishlistReducer";
-import axios from "axios";
 
 import {
   useContext,

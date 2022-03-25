@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 
 // Pages import
-import Home from "../pages/Home";
-import Wishlist from "../pages/Wishlist";
-import Cart from "../pages/Cart";
-import ProductList from "../pages/ProductList";
-import Signup from "../pages/Signup";
-import Login from "../pages/Login";
 import Mockman from "mockman-js";
+import Home from "../pages/Home";
+import Cart from "../pages/Cart";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
+import Wishlist from "../pages/Wishlist";
+import ProductList from "../pages/ProductList";
 
 function Endpoints() {
   return (

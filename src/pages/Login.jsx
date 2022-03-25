@@ -1,8 +1,8 @@
-import "../styles/login.css";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../styles/login.css";
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthProvider";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("gkool@neog.camp");
@@ -75,5 +75,3 @@ export default function Login() {
     </div>
   );
 }
-
-// export { Login };

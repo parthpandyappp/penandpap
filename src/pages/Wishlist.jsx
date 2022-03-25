@@ -1,6 +1,6 @@
-import { useWishlist } from "../contexts/WishlistProvider";
-import WishProduct from "../components/WishProduct";
 import { Fragment } from "react";
+import WishProduct from "../components/WishProduct";
+import { useWishlist } from "../contexts/WishlistProvider";
 
 export default function Wishlist() {
   const { Wishstate } = useWishlist();

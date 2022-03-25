@@ -3,14 +3,18 @@ import { Toaster } from "react-hot-toast";
 import { useAuth } from "../contexts/AuthProvider";
 import { useCart } from "../contexts/CartProvider";
 import { useWishlist } from "../contexts/WishlistProvider";
+
+// Importing cart helper functions
 import { addToCart, isCarted } from "../helper-functions/cart-helpers";
+
+// Importing toast helper functions
 import {
   notifyCart,
   notifyAddWish,
   notifyRemoveWish,
 } from "../helper-functions/toast-helpers";
 
-// importing helper functions
+// importing wishlist helper functions
 import {
   addToWishlist,
   deleteWishItem,
