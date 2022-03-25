@@ -75,9 +75,6 @@ export default function Cart() {
                               +
                             </button>
                           </div>
-                          {/* <button className="btn btn-primary btn-block">
-                            Move to wishlist
-                          </button> */}
                         </div>
                       </div>
                     );
@@ -88,18 +85,6 @@ export default function Cart() {
                 <h2>Price Details</h2>
                 <hr />
                 <div className="cart-primaryDetails">
-                  {/* <div className="primary-unit">
-                    <p>Price (4 times)</p>
-                    <p>₹1400</p>
-                  </div>
-                  <div className="primary-unit">
-                    <p>Discount</p>
-                    <p>-₹499</p>
-                  </div>
-                  <div className="primary-unit">
-                    <p>Delivery charge</p>
-                    <p>₹40</p>
-                  </div> */}
                   <div className="details-main">
                     {state.cart.map((product) => {
                       return (
@@ -127,7 +112,6 @@ export default function Cart() {
                   </div>
                 </div>
                 <hr />
-                {/* <p>You will save ₹499 on this order</p> */}
                 <button className="btn btn-primary btn-block">
                   Place order
                 </button>
