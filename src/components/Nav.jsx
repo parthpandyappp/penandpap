@@ -1,4 +1,3 @@
-import "../styles/nav.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthProvider";
 import { useCart } from "../contexts/CartProvider";
