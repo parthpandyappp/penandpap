@@ -5,8 +5,8 @@ import { useState } from "react";
 import { useAuth } from "../contexts/AuthProvider";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const [email, setEmail] = useState("gkool@neog.camp");
+  const [pass, setPass] = useState("gkool");
   const { boolFunc } = useAuth();
   const navigate = useNavigate();
 
@@ -38,6 +38,7 @@ export default function Login() {
             <input
               type="email"
               name="email"
+              value="johnsangram@gkool.com"
               placeholder="johnsangram@gkool.com"
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -45,8 +46,9 @@ export default function Login() {
           <div className="inp-unit">
             <label for="email">Password</label>
             <input
-              type="email"
+              type="password"
               name="password"
+              value="thisismyloginimplementation"
               placeholder="**********"
               onChange={(e) => setPass(e.target.value)}
             />

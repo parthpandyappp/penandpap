@@ -1,6 +1,7 @@
 import "./App.css";
 import "./styles/prodlist.css";
 import "./styles/wishlist.css";
+import "./styles/cart.css"
 
 import { Routes } from "./routes/Routes";
 import Nav from "./components/Nav";

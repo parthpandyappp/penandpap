@@ -19,7 +19,6 @@ import {
 
 export default function ProductList() {
   const productList = useProductData();
-  console.log("List from Customhook: ", productList);
 
   const [state, dispatch] = useReducer(productReducer, {
     sortBy: null,
