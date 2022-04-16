@@ -3,12 +3,12 @@
 <div align="center">
   
 # PenandPap✍️ - Wholesome office and Student stationery
+### https://penandpap-react.netlify.app/
   
-Looking for Office stationery or School stationery online? Browse a wide range of stationery items at the online stationery store. ✍️
 </div>
 
-### To know 🎯
-This project is a part of an assignment in neoG'22. The tech stack information is given below.
+Looking for Office stationery or School stationery online? Browse a wide range of stationery items at the online stationery store. ✍️
+
 
 ### Tech Stack
 <hr/>
@@ -20,6 +20,8 @@ This project is a part of an assignment in neoG'22. The tech stack information i
 
 #### Backend
 - [Mockbee](https://mockbee.netlify.app)
+
+<hr />
 
 ### Early Preview 🎯
 
